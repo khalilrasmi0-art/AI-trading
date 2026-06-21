@@ -1,0 +1,6 @@
+{
+  "name": "Institutional AI Trading Terminal",
+  "description": "An institutional-grade, multi-agent AI-powered automated financial trading platform featuring real-time data ingestion, forecasting, backtesting, and portfolio optimization.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

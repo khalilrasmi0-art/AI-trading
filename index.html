@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Google AI Studio App</title>
+    <script>
+      // Gracefully handle benign HMR/Vite connection failures since dev/sandbox environment blocks HMR
+      window.addEventListener('unhandledrejection', function(event) {
+        var reason = event.reason;
+        if (reason && (
+          (reason.message && (reason.message.indexOf('WebSocket') !== -1 || reason.message.indexOf('vite') !== -1)) ||
+          (String(reason).indexOf('WebSocket') !== -1)
+        )) {
+          event.preventDefault();
+          console.debug && console.debug('Suppressed benign HMR WebSocket reconnection error');
+        }
+      });
+      window.addEventListener('error', function(event) {
+        var msg = event.message;
+        if (msg && (msg.indexOf('WebSocket') !== -1 || msg.indexOf('vite') !== -1)) {
+          event.preventDefault();
+        }
+      }, true);
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+
